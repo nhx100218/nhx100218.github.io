@@ -4,7 +4,32 @@
   
     
     <entry>
-      <title>pg11</title>
+      <title>各种Office（Microsoft 365）/Windows激活</title>
+      <link href="/2026/03/15/office/"/>
+      <url>/2026/03/15/office/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一条命令激活-Windows-Office（Microsoft-365）？使用-PowerShell-脚本轻松搞定！"><a href="#一条命令激活-Windows-Office（Microsoft-365）？使用-PowerShell-脚本轻松搞定！" class="headerlink" title="一条命令激活 Windows&#x2F;Office（Microsoft 365）？使用 PowerShell 脚本轻松搞定！"></a>一条命令激活 Windows&#x2F;Office（Microsoft 365）？使用 PowerShell 脚本轻松搞定！</h1><p>在日常使用 Windows 或 Office（Microsoft 365） 的过程中，激活往往是绕不开的话题。很多朋友可能还在寻找各种激活工具、序列号，或者被繁琐的步骤困扰。其实，现在有一种非常简洁的方法——<strong>只需要一条 PowerShell 命令</strong>，就能自动完成激活。今天就带大家了解一下这条神奇的指令。</p><h2 id="🚀-一条命令搞定激活"><a href="#🚀-一条命令搞定激活" class="headerlink" title="🚀 一条命令搞定激活"></a>🚀 一条命令搞定激活</h2><p>打开 <strong>PowerShell（管理员）</strong>，Windows11及以上请选择打开<strong>终端(管理员)</strong>，复制粘贴下面这行代码并回车：</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> https://get.activated.win | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure><p>然后根据弹出的菜单提示，输入对应的数字即可激活 Windows 或 Office（Microsoft 365）。整个过程全自动，无需手动下载文件或输入密钥。</p><h2 id="🔍-命令解析"><a href="#🔍-命令解析" class="headerlink" title="🔍 命令解析"></a>🔍 命令解析</h2><p>这条命令由两部分组成：</p><ul><li><code>irm</code>：<code>Invoke-RestMethod</code> 的简写，用于从指定的 URL 下载内容。这里它会下载 <code>https://get.activated.win</code> 指向的脚本。</li><li><code>iex</code>：<code>Invoke-Expression</code> 的简写，用于执行下载的脚本内容。</li></ul><p>合起来就是：<strong>从网络下载一个脚本并直接在内存中运行</strong>。这是一种非常常见的“下载并执行”模式，尤其适合分发和运行激活脚本。</p><h2 id="🧰-脚本背景"><a href="#🧰-脚本背景" class="headerlink" title="🧰 脚本背景"></a>🧰 脚本背景</h2><p>这个 URL <code>get.activated.win</code> 实际上是知名开源项目 <strong>Microsoft Activation Scripts (MAS)</strong> 的重定向地址。MAS 由 GitHub 用户 <strong>MassGrave</strong> 维护，是一个开源、透明的 Windows 和 Office（Microsoft 365） 激活脚本集合，支持：</p><ul><li><strong>HWID (数字许可证激活)</strong>：永久激活 Windows 10&#x2F;11。</li><li><strong>Ohook</strong>：永久激活 Office（Microsoft 365）（绕过方式）。</li><li><strong>KMS</strong>：180 天激活（适用于 Windows 和 Office（Microsoft 365） 的批量版本）。</li><li><strong>在线 KMS</strong>：激活 Windows&#x2F;Office（Microsoft 365） 的 GVLK 密钥。</li></ul><p>脚本完全开源，代码公开在 GitHub 上，任何人都可以审查，因此相对安全可靠。</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol><li>以 <strong>管理员身份</strong> 打开 PowerShell（在开始菜单搜索 PowerShell，右键选择“以管理员身份运行”，Windows11及以上请选择打开<strong>终端(管理员)</strong>）。</li><li>将上面的命令粘贴到窗口中，按回车。</li><li>稍等片刻，脚本会自动下载并显示菜单界面：<ul><li>选择 <code>1</code> 激活 Windows（HWID 永久激活）</li><li>选择 <code>2</code> 激活 Office（Microsoft 365）（Ohook 永久激活）</li><li>选择 <code>3</code> 激活其他版本（KMS）</li><li>等等…</li></ul></li><li>根据你的需求输入对应数字，等待提示“激活成功”即可。</li></ol><blockquote><p><strong>注意</strong>：激活 Office（Microsoft 365） 需要事先安装好 Office（Microsoft 365） 并确保是批量许可版本（Volume），如果是零售版可能需要先转换。脚本通常也会提供转换选项。</p></blockquote><h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><p>虽然 MAS 是一个广受好评的开源项目，但运行任何从互联网下载的脚本都有潜在风险，请务必留意以下几点：</p><ul><li><p><strong>安全风险</strong>：<code>irm | iex</code> 模式会直接执行脚本，如果下载的脚本被篡改或 URL 被劫持，可能导致系统受损。建议先查看脚本内容（仅下载不执行）：  </p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">irm</span> https://get.activated.win</span><br></pre></td></tr></table></figure><p>或者去 GitHub 上阅读源码（<a href="https://github.com/massgravel/Microsoft-Activation-Scripts">MAS 项目地址</a>）。</p></li><li><p><strong>杀毒软件报毒</strong>：激活工具常会被杀毒软件误报为“黑客工具”或“潜在不受欢迎的程序”，因为其行为与恶意软件类似（修改系统授权）。如需运行，可能需要暂时禁用实时保护或添加排除项。</p></li><li><p><strong>版权与法律</strong>：激活工具仅供个人学习研究，请支持正版软件。商业用途请购买正版授权。</p></li><li><p><strong>系统版本要求</strong>：Windows 10&#x2F;11 专业版&#x2F;家庭版等主流版本均可；Office 支持 2016&#x2F;2019&#x2F;2021等；最新的Microsoft 365也可以激活。</p></li></ul><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>一条命令激活 Windows&#x2F;Office（Microsoft 365） 听起来很酷，但背后是开源社区的努力和透明代码的信任。MAS 脚本简化了激活流程，甚至集成了自动续期、还原等功能，非常实用。当然，无论使用什么工具，都要时刻保持安全意识，并尊重软件开发者的劳动成果。</p><p>如果你觉得本文对你有帮助，欢迎收藏或分享给需要的朋友。也欢迎在评论区交流你的使用体验！</p><hr><p><strong>免责声明</strong>：本文仅作技术交流，请勿用于非法用途。使用任何激活工具均存在风险，由此造成的后果自负。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nhx9605 Workspace · Project Group 1</title>
       <link href="/2026/02/13/pg11/"/>
       <url>/2026/02/13/pg11/</url>
       
